@@ -1,4 +1,4 @@
-# 03-vue
+# Proyecto Vue
 
 ## Project setup
 ```
