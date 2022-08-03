@@ -3,21 +3,28 @@ import {shallowMount} from "@vue/test-utils"//se importa una herramienta de vue 
 import Counter from "@/components/Counter"//ademas tenemos que importar el componente desde la carpeta components
 
 describe ("Counter Component", ()=>{
-    //test("Debe hacer match con el snapshot", ()=>{
-       
-    //    const wrapper = shallowMount(Counter)//dentro de esta funcion de js, se uso shallowmount 
-    //    expect(wrapper.html()).toMatchSnapshot()//y aca de saca un snapshot y compararlo con el renderizado de hmtl y estos deben coincidir
-    //}
+  
+  test("este h2 debe tener el valor por defecto 'Counter' ",()=>{
+ 
+    const wrapper = shallowMount(Counter)
 
-    test("h2 debe tener el valor por defecto 'Counter' ", ()=>{
+    const  h2Value = wrapper.find("h2").text()
 
-        const wrapper = shallowMount(Counter)
+    expect(h2Value).toBe("Counter")
 
-        const h2 = wrapper.find("h2")
+  })
 
-        expect(h2.text()).toBe("Counter")
+  test("el valor por defecto debe ser 100 en el p",()=>{
+     
+    const wrapper = shallowMount(Counter)
 
-    })
+    const pvalue = wrapper.find('[data-test="counter"]').text()
+    
+    //expect(pvalue[1].text()).toBe("100")
+    expect(pvalue).toBe("100")
+  })
+
 })
+
 
 
